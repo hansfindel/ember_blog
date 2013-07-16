@@ -9,7 +9,7 @@ This blog is built from the following open source components:
 - [EmberRails](https://github.com/emberjs/ember-rails) - The front end is an Ember.js app that communicates with the Rails API. 
 - [Foundation](http://foundation.zurb.com/) - The UI is designed and accomplished with Zurb Foundation.
 
-![LosBlogos Screenshot](https://github.com/hansfindel/ember_blog/tree/master/app/assets/images/ScreeShot.png)
+
 
 ## Contributing
 EmberBlog - Los Blogos is **100% free** and **open-source**. I encourage and support an active, healthy community that accepts contributions from the public. I'd like you to be a part of that community.
