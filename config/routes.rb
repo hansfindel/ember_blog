@@ -1,19 +1,20 @@
 EmberBlog::Application.routes.draw do
-  resources :comments
-
-  resources :blogs
-
+  
   get "static/index"
   root "static#index"
-
 
   namespace :api do
     namespace :v1 do
       resources :blogs
       resources :comments
-      #resources :users
+      resources :users
     end
   end
+
+  resources :blogs
+  resources :comments
+  resources :users
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
