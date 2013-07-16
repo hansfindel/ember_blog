@@ -2,10 +2,10 @@
 	<div class="four columns" id="blogs">
 		<h2>Blogs</h2>
 		{{#each blog in controller}}
-			{{#linkTo "blog" blog}}
+			<a href="#" {{action "showBlog" blog}} >
 				<h3>{{blog.titled}}</h3>
 				<p>{{blog.explanation}}</p>				
-			{{/linkTo}}
+			</a>
 		{{/each}}
 		<h4>{{#linkTo "new_blog"}}New blog{{/linkTo}}</h4>
 	</div>

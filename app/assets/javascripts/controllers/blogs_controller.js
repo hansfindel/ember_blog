@@ -1,5 +1,11 @@
 EmberBlog.BlogsController = Ember.ArrayController.extend({
-	sortProperties: ["id"]
+	sortProperties: ["id"], 
+
+	showBlog: function(b){
+		//console.log("blogs controller!");
+		blog = b;
+		this.transitionToRoute('blog', blog)		
+	}
 });
 
 EmberBlog.BlogController = Ember.ObjectController.extend({

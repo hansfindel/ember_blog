@@ -28,8 +28,8 @@ class Api::V1::CommentsController < ApplicationController
   # POST /tables.json
   def create
     #sleep 1
-    @comment = Blog.new(comment_params)
-    #@comment.save
+    @comment = Comment.new(comment_params)
+    @comment.save
     #sleep 1
     respond_with @comment
   end
@@ -49,7 +49,7 @@ class Api::V1::CommentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_blog
+    def set_comment
       @comment = Comment.find(params[:id])
     end
 
