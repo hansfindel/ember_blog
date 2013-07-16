@@ -22,9 +22,9 @@ EmberBlog.BlogController = Ember.ObjectController.extend({
 	}, 
 
 	cancel: function(b){
-		console.log("blog controller cancel");
-		console.log(b);
-		console.log(EmberBlog.Blog)
+		//console.log("blog controller cancel");
+		//console.log(b);
+		//console.log(EmberBlog.Blog)
 		b.deleteRecord()
 		b.get("transaction").commit();
 		this.transitionToRoute('blogs.index')		
@@ -35,11 +35,17 @@ EmberBlog.BlogController = Ember.ObjectController.extend({
 		c.deleteRecord()
 		c.get("transaction").commit();
 	}, 
+
+
 	editComment: function(c){
+		//console.log(blog.editingComment()):
+		blog.endEditingComment();
+		blog.set("editingCommentId", c.id); //should be moved? could change with refactoring... 
 		c.startEdit();
 	}, 
 	updateComment: function(c){
-		c.endEdit();
+		//is not being used... this should commit the store or transaction
+		blog.endEditingComment();
 	}
 
 });

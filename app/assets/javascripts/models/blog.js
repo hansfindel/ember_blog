@@ -6,6 +6,23 @@ EmberBlog.Blog = DS.Model.extend({
   comments: DS.hasMany('EmberBlog.Comment'),
   //comments: DS.hasMany('EmberBlog.Comment' , {embedded: true}),
   //comments: DS.attr('Array'), //this is not recognized
+  
+  editingCommentId: DS.attr('number'), 
+  editingComment: function(){
+  	id = this.get("editingCommentId");
+  	if(id){
+  		return EmberBlog.Comment.find(this.get("editingCommentId"));	
+  	}else{
+  		return null;
+  	}
+  }, 
+  endEditingComment: function(){
+  	var comment = this.editingComment();
+	if(comment){
+		comment.endEdit();
+	}
+	this.set("editingCommentId", null);
+  }, 
 
   // front end property
   editing: DS.attr('boolean'), 

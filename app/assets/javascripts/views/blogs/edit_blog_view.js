@@ -13,8 +13,8 @@ EmberBlog.EditBlogView = Ember.View.extend({
     console.log("edit blog view - submit")
     //console.log(this.get("controller"))
     //console.log(this.get("controller").get("transaction"))
-    this.get("controller").get("store").commit();
-        
+    //this.get("controller").get("store").commit();        
+    this.get("controller").get("transaction").commit();
   }
 
 
