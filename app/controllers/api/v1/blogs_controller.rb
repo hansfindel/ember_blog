@@ -3,14 +3,12 @@ class Api::V1::BlogsController < ApplicationController
    
   respond_to :json
 
-  # GET /tables
-  # GET /tables.json
+  # GET 
   def index
     respond_with Blog.all#, Comment.all
   end
 
-  # GET /tables/1
-  # GET /tables/1.json
+  # GET /blogs/1.json
   def show
     if @blog
     	respond_with @blog#, @blog.comments
@@ -19,17 +17,13 @@ class Api::V1::BlogsController < ApplicationController
     end
   end
 
-  # GET /tables/new
-  def new
-    #respond_with Table.new
-  end
+  # GET
+  #def new    
+  #end
+  #def edit
+  #end
 
-  # GET /tables/1/edit
-  def edit
-  end
-
-  # POST /tables
-  # POST /tables.json
+  # POST /blogs.json
   def create
     #sleep 1
     @blog = Blog.new(blog_params)
@@ -38,15 +32,13 @@ class Api::V1::BlogsController < ApplicationController
     respond_with @blog
   end
 
-  # PATCH/PUT /tables/1
-  # PATCH/PUT /tables/1.json
+  # PATCH/PUT /blogs/1.json
   def update
     @blog.update(blog_params)
     respond_with @blog
   end
 
-  # DELETE /tables/1
-  # DELETE /tables/1.json
+  # DELETE /blogs/1.json
   def destroy
     respond_with @blog.destroy
   end

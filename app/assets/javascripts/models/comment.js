@@ -1,7 +1,18 @@
 EmberBlog.Comment = DS.Model.extend({
   description: DS.attr('string'),
   //blogId: DS.attr('number')
-  blog: DS.belongsTo('EmberBlog.Blog')
+  blog: DS.belongsTo('EmberBlog.Blog'), 
+
+  //front end property 
+  editing: DS.attr('boolean'), 
+
+  startEdit: function(){
+    this.set("editing", true);
+  },
+  endEdit: function(){
+    this.set("editing", false)
+  }
+
 });
 
  /*

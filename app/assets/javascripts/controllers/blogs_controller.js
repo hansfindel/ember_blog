@@ -30,6 +30,18 @@ EmberBlog.BlogController = Ember.ObjectController.extend({
 		this.transitionToRoute('blogs.index')		
 	}
 
+	, deleteComment: function(c){
+		//console.log(c)
+		c.deleteRecord()
+		c.get("transaction").commit();
+	}, 
+	editComment: function(c){
+		c.startEdit();
+	}, 
+	updateComment: function(c){
+		c.endEdit();
+	}
+
 });
 
 EmberBlog.NewBlogController = Ember.ObjectController.extend({
