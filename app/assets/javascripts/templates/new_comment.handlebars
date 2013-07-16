@@ -1,0 +1,12 @@
+<h3>New Comment entry</h3>
+<ul class="blog_form" style="list-style:none;">
+	<li>
+	  	{{view Ember.TextArea valueBinding="view.description"  placeholder="Content"}}
+	</li>
+	<li>
+		  <button type="submit" class="button large expand">
+		    {{#if id}}Update{{else}}Create{{/if}}
+		  </button>
+	</li>
+</ul>
+<a href="" {{action "cancel"}}> Cancel </a>
