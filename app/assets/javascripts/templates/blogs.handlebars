@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="four columns" id="blogs">
+	<div class="three columns" id="blogs">
 		<h2>Blogs</h2>
 		{{#each blog in controller}}
 			<a href="#" {{action "showBlog" blog}} >
@@ -9,7 +9,7 @@
 		{{/each}}
 		<h4>{{#linkTo "new_blog"}}New blog{{/linkTo}}</h4>
 	</div>
-	<div class="eight columns" id="blog">
+	<div class="nine columns" id="blog">
 		{{outlet}}
 	</div>
 </div>

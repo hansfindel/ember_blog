@@ -1,35 +1,39 @@
 <div class="row">
 	<div class="twelve columns">
-		{{#if isEditing}}
-			<a href="" {{action "endUpdate" this}}> Hide editing fields </a>
-		{{else}}
-			<div class="row">
-				<div class="four columns">
-					<a href="" {{action "editEntry" this}} class="button"> Edit </a>		
-				</div>
-				<div class="four columns">
-				</div>
-				<div class="four columns">
-					<a href="" {{action "cancel" this}} class="button alert"> Delete </a>
-				</div>
+		<div class="row">
+			<div class="eight columns">
+				<h2>{{title}}</h2>
 			</div>
-		{{/if}}
-	</div>
-</div>
-<div class="row">
-	<div class="twelve columns">
-		<h2>{{title}}</h2>
-		<h4>{{explanation}}</h4>
-		<hr>
-		<p>{{description}}</p>
+			<div class="four columns">
+				{{#if isEditing}}
+					<a href="" {{action "endUpdate" this}}> Hide editing fields </a>
+				{{else}}
+					<div class="five columns">
+						<a href="" {{action "editEntry" this}} class="button"> Edit </a>		
+					</div>
+					<div class="two columns">
+					</div>
+					<div class="five columns">
+						<a href="" {{action "cancel" this}} class="button alert"> Delete </a>
+					</div>
+				{{/if}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<h4>{{explanation}}</h4>
+				<hr>
+				<p>{{description}}</p>
 
-		{{#if isEditing}}
-			<div class="row">
-				<div class="twelve columns">
-					{{render "edit_blog" this}}
-				</div>	
+				{{#if isEditing}}
+					<div class="row">
+						<div class="twelve columns">
+							{{render "edit_blog" this}}
+						</div>	
+					</div>
+				{{/if}}
 			</div>
-		{{/if}}
+		</div>
 	</div>	
 </div>
 

@@ -12,6 +12,7 @@ EmberBlog.NewCommentView = Ember.View.extend({
     this.get('controller').send('addComment', cont, blog);
     this.set('description', "");
     return false;
-  }
+  }, 
+
 
 });
