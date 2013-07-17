@@ -19,3 +19,17 @@ EmberBlog.NewUserView = Ember.View.extend({
     return false;
   }
 });
+
+EmberBlog.EditUserView = Ember.View.extend({
+  templateName: 'users/form', 
+  tagName:      'form', 
+
+  submit: function(){
+    console.log("edit blog view - submit")
+    this.get("controller").updateUser();
+    isEditing = false;
+    return false;
+  }
+
+
+});

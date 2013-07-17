@@ -1,18 +1,37 @@
-<h3>New Author entry</h3>
-<ul class="blog_form" style="list-style:none;">
-	<li>
-	  	{{view Ember.TextField valueBinding="view.username" placeholder="Title"}}
-	</li>
-	<li>
-	  	{{view Ember.TextField valueBinding="view.email" type="email" placeholder="Email"}}
-	</li>
-	<li>
-	  	{{view Ember.TextField valueBinding="view.password" type="password" placeholder="Password"}}
-	</li>
-	<li>
-		  <button type="submit" class="button large expand">
-		    {{#if id}}Update{{else}}Create{{/if}}
-		  </button>
-	</li>
-</ul>
-<a href="" {{action "cancel"}}> Cancel </a>
+{{#if id}}
+	<ul class="blog_form" style="list-style:none;">
+		<li>
+			{{view Ember.TextField valueBinding="username" placeholder="Username"}}
+		</li>
+		<li>
+			{{view Ember.TextField valueBinding="email" type="email" placeholder="Email"}}
+		</li>
+		<li>
+			{{view Ember.TextField valueBinding="password" type="password" placeholder="Password"}}
+		</li>
+		<li>
+			<button type="submit" class="button large expand">
+				Update
+			</button>
+		</li>
+	</ul>
+{{else}}
+	<h3>New Author entry</h3>
+	<ul class="blog_form" style="list-style:none;">
+		<li>
+			{{view Ember.TextField valueBinding="view.username" placeholder="Username"}}
+		</li>
+		<li>
+			{{view Ember.TextField valueBinding="view.email" type="email" placeholder="Email"}}
+		</li>
+		<li>
+			{{view Ember.TextField valueBinding="view.password" type="password" placeholder="Password"}}
+		</li>
+		<li>
+			<button type="submit" class="button large expand">
+				{{#if id}}Update{{else}}Create{{/if}}
+			</button>
+		</li>
+	</ul>
+	<a href="" {{action "cancel"}}> Cancel </a>
+{{/if}}

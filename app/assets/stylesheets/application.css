@@ -79,3 +79,7 @@ h2 span {
   background: black;
   color: white;
 }
+
+.blue-top-bar, .top-bar.blue-top-bar{
+  background: #2ba6cb;
+}

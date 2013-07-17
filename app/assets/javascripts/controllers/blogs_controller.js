@@ -2,7 +2,6 @@ EmberBlog.BlogsController = Ember.ArrayController.extend({
 	sortProperties: ["id"], 
 
 	showBlog: function(b){
-		//console.log("blogs controller!");
 		blog = b;
 		this.transitionToRoute('blog', blog)		
 	}

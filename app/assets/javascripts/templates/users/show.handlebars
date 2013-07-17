@@ -1,7 +1,31 @@
 <div class="row">
 	<div class="twelve columns">
-		<h2>{{username}}</h2>
-		<h4>{{email}}</h4>
+		<div class="eight columns">
+			<h2>{{username}}</h2>
+			<h4>{{email}}</h4>
+		</div>
+		<div class="four columns">
+			{{#if editing}}
+				<a href="" {{action "endUpdate" this}} class="button"> Hide editing fields </a>
+			{{else}}
+				<div class="four columns">
+					<a href="" {{action "editUser" this}} class="button"> Edit </a>		
+				</div>
+				<div class="two columns">
+				</div>
+				<div class="four columns">
+					<a href="" {{action "deleteUser" this}} class="button alert"> Delete </a>
+				</div>
+			{{/if}}
+		</div>
+	</div>
+	{{#if editing}}
+		<div class="twelve columns">
+			{{render "edit_user" this}}
+			<a href="" {{action "endUpdate" this}} class="button"> Hide editing fields </a>
+		</div>	
+	{{/if}}
+	<div class="twelve columns">
 		<hr>
 		<p>publications... </p>
 
