@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
 
-	before_create :encrypt
+	#relations
+	has_many :blogs
 
 	#validations
-
+	before_create :encrypt
 
 	# triggered methods
 	def encrypt

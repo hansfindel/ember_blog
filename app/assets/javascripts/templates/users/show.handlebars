@@ -27,7 +27,12 @@
 	{{/if}}
 	<div class="twelve columns">
 		<hr>
-		<p>publications... </p>
+		<h4>Publications</h4>
+		<ul>
+			{{#each blog in blogs}}
+				<li>{{#linkTo "blog" blog}}{{blog.titled}}{{/linkTo}}</li>
+			{{/each}}
+		</ul>
 
 	</div>	
 </div>

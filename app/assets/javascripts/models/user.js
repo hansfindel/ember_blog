@@ -3,6 +3,7 @@ EmberBlog.User = DS.Model.extend({
   email: DS.attr('string'),
   password: DS.attr('string'), 
 
+  blogs: DS.hasMany('EmberBlog.Blog'),
   //password:[Hash|Salt]: DS.attr('string') are for the back-end
   
   editing: DS.attr('boolean'), 
@@ -13,7 +14,11 @@ EmberBlog.User = DS.Model.extend({
   	this.set("editing", false);
   }, 
   isEditing: function(){
-  	return this.get
+  	return this.get("editing");
+  },  
+
+  fullname: function(){
+  	return this.get("username");
   }
 
 });

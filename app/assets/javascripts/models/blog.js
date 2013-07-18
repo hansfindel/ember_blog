@@ -2,7 +2,10 @@ EmberBlog.Blog = DS.Model.extend({
   title: DS.attr('string'),
   explanation: DS.attr('string'),
   description: DS.attr('string'), 
+  createdAt: DS.attr("date"),
 
+
+  user: DS.belongsTo('EmberBlog.User'), 
   comments: DS.hasMany('EmberBlog.Comment'),
   //comments: DS.hasMany('EmberBlog.Comment' , {embedded: true}),
   //comments: DS.attr('Array'), //this is not recognized
