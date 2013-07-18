@@ -1,4 +1,5 @@
 EmberBlog.Comment = DS.Model.extend({
+//EmberBlog.Comment = EmberBlog.APIModel.extend({  
   description: DS.attr('string'),
   //blogId: DS.attr('number')
   blog: DS.belongsTo('EmberBlog.Blog'), 

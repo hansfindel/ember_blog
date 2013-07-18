@@ -1,4 +1,5 @@
 EmberBlog.Blog = DS.Model.extend({
+//EmberBlog.Blog = EmberBlog.APIModel.extend({
   title: DS.attr('string'),
   explanation: DS.attr('string'),
   description: DS.attr('string'), 
@@ -63,9 +64,19 @@ EmberBlog.Blog = DS.Model.extend({
     	val = val + '(*)';
     } 
     return val;
-  }).property('title', 'id')
+  }).property('title', 'id'), 
+
+
+  active: DS.attr("boolean"), 
+  activate: function(){
+    this.set("active", true);
+  },
+  deactivate: function(){
+    this.set("active", false);
+  }
 
 });
+
 
 /*
 EmberBlog.Blog.FIXTURES = [{

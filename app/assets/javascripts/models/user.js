@@ -1,4 +1,5 @@
 EmberBlog.User = DS.Model.extend({
+//EmberBlog.User = EmberBlog.APIModel.extend({ 
   username: DS.attr('string'),
   email: DS.attr('string'),
   password: DS.attr('string'), 

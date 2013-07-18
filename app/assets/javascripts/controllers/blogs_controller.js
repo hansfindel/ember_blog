@@ -1,8 +1,13 @@
 EmberBlog.BlogsController = Ember.ArrayController.extend({
 	sortProperties: ["id"], 
 
+
 	showBlog: function(b){
+		if(blog && blog.id!="blog"){
+			blog.deactivate();	
+		}
 		blog = b;
+		blog.activate();
 		this.transitionToRoute('blog', blog)		
 	}
 });
