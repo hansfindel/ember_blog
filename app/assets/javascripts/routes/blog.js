@@ -11,8 +11,6 @@ EmberBlog.BlogsRoute = Ember.Route.extend({
 EmberBlog.BlogRoute = Ember.Route.extend({
 	// many tables -> should be managed by an ArrayController
 	model: function(params) {
-		params["k"] = "hololo";
-		console.log(params);
 		blog = EmberBlog.Blog.find(params.blog_id);
 		//console.log(blog.get("id"));
 		//data = blog.get("data");

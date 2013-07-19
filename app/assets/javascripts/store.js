@@ -1,25 +1,40 @@
-var key = "key";
-var user_id =  "user_id";
-
 var apiAdapter = DS.RESTAdapter.create({
     namespace: 'api/v1'
     , bulkCommit: false
-    /*
-    , ajax: function(url, type, hash) {
-    	if (Ember.isEmpty(hash)) hash = {};
-    	if (Ember.isEmpty(hash.data)) hash.data = {};
-    	hash.data.app_account_id = "ember_blog-los_blogos::app";
-    	hash.data.key = key;
-    	hash.data.user_id = user_id;
-    	this._super(url, type, hash);
-  	}
-  	*/
   });
+
+EmberBlog.accountId = 'asdf';
+EmberBlog.key = "key";
+EmberBlog.user_id = "user_id";
+
+EmberBlog.RESTConnector = DS.RESTAdapter.extend({
+  namespace: 'api/v1',
+  bulkCommit: false
+});
+
+EmberBlog.RESTAdapter = EmberBlog.RESTConnector.extend({
+  // Scope all ajax calls.
+  ajax: function(url, type, hash) {
+  	//console.log(url);
+  	//console.log(type);
+  	//console.log(hash);
+  	url = url + ".json"
+    if (Ember.isEmpty(hash)) hash = {};
+    if (Ember.isEmpty(hash.data)) hash.data = {};
+    hash.data.account_id = EmberBlog.accountId;
+    data = this._super(url, type, hash);
+    //console.log(data);
+    return data;
+  },
+
+});
+
 
 EmberBlog.Store = DS.Store.extend({
   revision: 11, 
   //adapter: 'DS.FixtureAdapter' /*
-  adapter: apiAdapter 
+  //adapter: apiAdapter 
+  adapter: "EmberBlog.RESTAdapter"
 });
 
 //EmberBlog.Store.adapter.serializer.map('EmberBlog.Post', {comments: {'embedded': 'load'}});
