@@ -13,6 +13,19 @@ EmberBlog.Session = DS.Model.extend({
   	resource = apiAdapter.rootForType("Sessions");
   	url = [namespace, resource].join("/")
   	return url;
-  }
+  }, 
+
+
+  current_user: Ember.computed(function(){
+	  user_id = EmberBlog.user_id;
+	  if(typeof(user_id) == "number"){
+	    return (user_id > 0);
+	  }else{
+	    return false;
+	  }
+	  return false;
+  }).property("email")
+
+
 
 });

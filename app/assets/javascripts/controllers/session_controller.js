@@ -1,20 +1,16 @@
 EmberBlog.LogInController = Ember.ObjectController.extend({
 	
 	login: function(email, pass){
-		//console.log(email);
-		//console.log(pass);
-		// js login 
 		session = EmberBlog.Session.createRecord();
 		//this.get("store").commit(); // no commiting this
 		apiKey = EmberBlog.key;
-		log_in_request(session, apiKey, email, pass);
-		//console.log("new comment controller");
+		success = log_in_request(session, apiKey, email, pass, this);
 	}
 
 });
 
 
-function log_in_request(ob, apiKey, email, password){
+function log_in_request(ob, apiKey, email, password, context){
 	url = ob.resourceUrl();
 	$.ajax({
         url: url,
@@ -33,6 +29,9 @@ function log_in_request(ob, apiKey, email, password){
                     EmberBlog.user_id = result["user_id"];
                     ob.set("email", result["email"]);
                     ob.set("username", result["username"]);
+                    EmberBlog.set("current_user", true);
+
+                    context.transitionToRoute('blogs')		
                     return true;
             }
         },

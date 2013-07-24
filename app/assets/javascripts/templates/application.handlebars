@@ -4,9 +4,12 @@
 		<h1>Los Blogos</h1>
 		<nav class="top-bar blue-top-bar">
 		  <ul class="title-area">
-		    <li class="name">{{#linkTo "blogs"}}Blogs{{/linkTo}}</li>
-		    <li class="name">{{#linkTo "users"}}Authors{{/linkTo}}</li>
-		    <li class="name">{{#linkTo "log_in"}}Log In{{/linkTo}}</li>
+		  	{{#if EmberBlog.current_user }}
+		    	<li class="name">{{#linkTo "blogs"}}Blogs{{/linkTo}}</li>
+		    	<li class="name">{{#linkTo "users"}}Authors{{/linkTo}}</li>
+		    {{else}}
+		    	<li class="name">{{#linkTo "log_in"}}Log In{{/linkTo}}</li>
+		    {{/if}}
 		  </ul>
 		</nav>
 		<hr>	

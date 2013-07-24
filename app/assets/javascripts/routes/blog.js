@@ -1,6 +1,6 @@
 EmberBlog.BlogsRoute = Ember.Route.extend({
 	// many tables -> should be managed by an ArrayController
-	model: function() {
+	model: function() {		
 		// body...
 		blogs = EmberBlog.Blog.find();
 		//console.log(blogs);

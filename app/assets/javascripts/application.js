@@ -21,3 +21,15 @@
 EmberBlog = Ember.Application.create();
 
 //= require_tree .
+
+
+//handles session
+// should be recovered from local storage
+EmberBlog.current_user = false;
+
+$(document).ready(function(){
+	if(!EmberBlog.current_user){
+		console.log("redirecting!");
+		EmberBlog.Router.router.transitionTo("log_in");
+	}	
+})
