@@ -54,6 +54,12 @@ class UserManager
     end
     hash 
   end
+  def self.log_out(user)
+    #change its token 
+    #-- could also be a default token wich is invalid
+    user.token = WordSanitizer.as_url(self.generate_token(user.id.to_s))
+    user.save 
+  end
 
   def self.encrypt_password(new_password, old_password = nil, password_salt = nil)
     if old_password.present? and password_salt.present?

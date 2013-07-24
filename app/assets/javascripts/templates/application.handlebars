@@ -7,6 +7,7 @@
 		  	{{#if EmberBlog.current_user }}
 		    	<li class="name">{{#linkTo "blogs"}}Blogs{{/linkTo}}</li>
 		    	<li class="name">{{#linkTo "users"}}Authors{{/linkTo}}</li>
+		    	<li class="name"><a href="" {{action "log_out"}}>Log Out</a></li>
 		    {{else}}
 		    	<li class="name">{{#linkTo "log_in"}}Log In{{/linkTo}}</li>
 		    {{/if}}

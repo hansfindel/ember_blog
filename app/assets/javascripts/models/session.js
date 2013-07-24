@@ -14,6 +14,13 @@ EmberBlog.Session = DS.Model.extend({
   	url = [namespace, resource].join("/")
   	return url;
   }, 
+  deleteResourceUrl: function(id){
+  	//apiAdapter is separated from the rest of the app
+  	namespace = apiAdapter.namespace;
+  	resource = apiAdapter.rootForType("Sessions");
+  	url = [namespace, resource, id].join("/")
+  	return url;
+  }, 
 
 
   current_user: Ember.computed(function(){
