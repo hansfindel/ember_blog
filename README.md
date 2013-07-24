@@ -11,9 +11,14 @@ This blog is built from the following open source components:
 
 ## To Do List
 - Log out
+- Current User performs each action
+- Handle user without login
 - Server Side Validation
 - Client Side Validation
 - Optimize queries on server
+- Handle user without connection (internet)
+- Real Time (with pusher or something else)
+
 
 ## Contributing
 EmberBlog - Los Blogos is **100% free** and **open-source**. I encourage and support an active, healthy community that accepts contributions from the public. I'd like you to be a part of that community.
