@@ -14,11 +14,13 @@ This blog is built from the following open source components:
 - Store session 
 - Retrieve session 
 - Handle user without login
+- Check permissions in users requests
 - Server Side Validation
 - Client Side Validation
 - Optimize queries on server
 - Handle user without connection (internet)
 - Real Time (with pusher or something else)
+- Keep up with the wiki
 
 
 ## Contributing
