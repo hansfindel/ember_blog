@@ -3,6 +3,8 @@ EmberBlog.BlogsController = Ember.ArrayController.extend({
 
 
 	showBlog: function(b){
+		console.log("blog=");
+		console.log(blog);
 		if(blog && blog.id!="blog"){
 			blog.deactivate();	
 		}
@@ -29,9 +31,12 @@ EmberBlog.BlogController = Ember.ObjectController.extend({
 		//console.log("blog controller cancel");
 		//console.log(b);
 		//console.log(EmberBlog.Blog)
-		b.deleteRecord()
+		b.deleteRecord();
+		console.log("deleted");
 		b.get("transaction").commit();
-		this.transitionToRoute('blogs.index')		
+		console.log("commited");
+		blog = null; //current_blog is nil
+		this.transitionToRoute('blogs.index');
 	}
 
 	, deleteComment: function(c){
@@ -61,7 +66,8 @@ EmberBlog.NewBlogController = Ember.ObjectController.extend({
 		console.log(title);
 		console.log(explanation);
 		console.log(description);
-		EmberBlog.Blog.createRecord({title:title, explanation: explanation, description: description});
+		user_id = EmberBlog.user_id
+		EmberBlog.Blog.createRecord({title:title, explanation: explanation, description: description, user_id: user_id});
 		this.get("store").commit();
 		console.log("new blog controller");
 	}, 

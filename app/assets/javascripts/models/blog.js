@@ -5,7 +5,7 @@ EmberBlog.Blog = EmberBlog.APIModel.extend({
   description: DS.attr('string'), 
   createdAt: DS.attr("date"),
 
-
+  userId: DS.attr('number'), 
   user: DS.belongsTo('EmberBlog.User'), 
   comments: DS.hasMany('EmberBlog.Comment'),
   //comments: DS.hasMany('EmberBlog.Comment' , {embedded: true}),

@@ -29,6 +29,8 @@ class Api::V1::BlogsController < ApplicationController
   def create
     #sleep 1
     @blog = Blog.new(blog_params)
+    @blog.user_id = params[:user_id]
+    #puts @blog
     @blog.save
     #sleep 1
     respond_with @blog
@@ -53,6 +55,6 @@ class Api::V1::BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :explanation, :description)
+      params.require(:blog).permit(:title, :explanation, :description, :user_id)
     end
 end
