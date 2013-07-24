@@ -2,7 +2,7 @@
 EmberBlog.ApplicationController = Ember.ObjectController.extend({
 	log_out: function(){
 		if(!window["session"]){
-			initialize_session();
+			initializeSession();
 		}
 
 		log_out_request(session, this)
@@ -15,7 +15,7 @@ EmberBlog.LogInController = Ember.ObjectController.extend({
 	
 	login: function(email, pass){
 		if(!window["session"]){
-			initialize_session();
+			initializeSession();
 		}
 		//this.get("store").commit(); // no commiting this
 		apiKey = EmberBlog.key;
@@ -24,9 +24,10 @@ EmberBlog.LogInController = Ember.ObjectController.extend({
 
 });
 
-function initialize_session(){
+function initializeSession(){
 	//sets it as a global variable
 	session = EmberBlog.Session.createRecord();
+	loadSession(session); //defined in local_storage
 }
 
 function log_in_request(ob, apiKey, email, password, context){
@@ -49,6 +50,9 @@ function log_in_request(ob, apiKey, email, password, context){
                     ob.set("email", result["email"]);
                     ob.set("username", result["username"]);
                     EmberBlog.set("current_user", true);
+
+                    //save session in local storage
+                    saveSession();
 
                     context.transitionToRoute('blogs')		
                     return true;
@@ -82,6 +86,10 @@ function log_out_request(ob, context){
                     ob.set("email", "");
                     ob.set("username", "");
                     EmberBlog.set("current_user", false);
+
+                    //delete session of local storage
+                    deleteSession();
+
 					context.transitionToRoute('log_in')		
                     return true;
             }
