@@ -13,7 +13,9 @@ class Api::V1::BlogsController < ApplicationController
     if @blog
     	respond_with @blog#, @blog.comments
     else
-      respond_with json: {status: 404, text: "No blog entry found with that id"}
+      #return respond_with status: 404, text: "No blog entry found with that id"
+      respond_with ActionController::RoutingError.new('Not Found'), status: :unprocessable_entity
+      #respond_with blog: {}
     end
   end
 

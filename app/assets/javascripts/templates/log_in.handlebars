@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="four columns"></div>
+	<div class="four columns">
+		<h3 class="center">Welcome</h3>
+		<ul class="blog_form" style="list-style:none;">
+			<li>
+			  	{{view Ember.TextField valueBinding="view.email" placeholder="Email"}}
+			</li>
+			<li>
+			  	{{view Ember.TextField valueBinding="view.password" placeholder="Password"}}
+			</li>
+			<li>
+				  <button type="submit" class="button large expand">
+				    Log in
+				  </button>
+			</li>
+		</ul>
+	</div>
+	<div class="four columns"></div>
+</div>

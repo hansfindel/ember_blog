@@ -8,6 +8,7 @@ EmberBlog::Application.routes.draw do
       resources :blogs
       resources :comments
       resources :users
+      resources :sessions, only: [:create, :destroy]
     end
   end
 

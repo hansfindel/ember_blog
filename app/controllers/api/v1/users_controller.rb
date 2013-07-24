@@ -13,7 +13,8 @@ class Api::V1::UsersController < ApplicationController
     if @blog
     	respond_with @user
     else
-      respond_with json: {status: 404, text: "No user entry found with that id"}
+      #respond_with json: {status: 404, text: "No user entry found with that id"}
+      respond_with status: 404, text: "No user entry found with that id"
     end
   end
 

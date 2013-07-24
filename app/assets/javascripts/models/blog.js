@@ -1,5 +1,5 @@
-EmberBlog.Blog = DS.Model.extend({
-//EmberBlog.Blog = EmberBlog.APIModel.extend({
+//EmberBlog.Blog = DS.Model.extend({
+EmberBlog.Blog = EmberBlog.APIModel.extend({
   title: DS.attr('string'),
   explanation: DS.attr('string'),
   description: DS.attr('string'), 
