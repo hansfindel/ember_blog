@@ -10,7 +10,6 @@ This blog is built from the following open source components:
 - [Foundation](http://foundation.zurb.com/) - The UI is designed and accomplished with Zurb Foundation.
 
 ## To Do List
-- Current User performs each action
 - Store session 
 - Retrieve session 
 - Handle user without login
