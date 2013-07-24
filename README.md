@@ -11,6 +11,8 @@ This blog is built from the following open source components:
 
 ## To Do List
 - Log out
+- Store session 
+- Retrieve session 
 - Current User performs each action
 - Handle user without login
 - Server Side Validation
