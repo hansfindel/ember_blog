@@ -25,4 +25,4 @@ EmberBlog.LogInController = Ember.ObjectController.extend({
 });
 
 
-// log_[in|out]_request are defined in session.js 
+// log_[in|out]_request are defined in session.js  
