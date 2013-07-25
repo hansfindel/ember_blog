@@ -10,7 +10,6 @@ This blog is built from the following open source components:
 - [Foundation](http://foundation.zurb.com/) - The UI is designed and accomplished with Zurb Foundation.
 
 ## To Do List
-- Client Side Validation
 - Optimize queries on server
 - Handle user without internet connection 
 - Real Time (with pusher or something else)
