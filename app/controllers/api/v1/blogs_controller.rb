@@ -1,6 +1,6 @@
-class Api::V1::BlogsController < ApplicationController
+class Api::V1::BlogsController < Api::V1::APIController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-   
+  before_action :validate_request # all! , only: [:index, :show, :create, :update, :destroy]   
   respond_to :json
 
   # GET 
@@ -56,5 +56,12 @@ class Api::V1::BlogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:title, :explanation, :description, :user_id)
+    end
+
+    def validate_request
+      @current_user = Api::V1::APIController.validate_request(params)      
+      if @current_user.nil? 
+        return respond_with json: {}
+      end
     end
 end

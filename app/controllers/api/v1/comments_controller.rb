@@ -1,6 +1,6 @@
-class Api::V1::CommentsController < ApplicationController
+class Api::V1::CommentsController < Api::V1::APIController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-   
+  before_action :validate_request #, only: [:index, :show, :update, :destroy] 
   respond_to :json
 
   #GET
@@ -50,5 +50,12 @@ class Api::V1::CommentsController < ApplicationController
     end
     def update_comment_params
       params.require(:comment).permit(:description)
+    end
+
+    def validate_request
+      @current_user = Api::V1::APIController.validate_request(params)      
+      if @current_user.nil? 
+        return respond_with json: {}
+      end
     end
 end

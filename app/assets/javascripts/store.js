@@ -18,7 +18,7 @@ update_hash = function(hash){
   if (Ember.isEmpty(hash.data)) hash.data = {};
   hash.data.account_id = EmberBlog.SessionToken;
   hash.data.key = EmberBlog.key;
-  hash.data.user_id = EmberBlog.user_id;
+  hash.data.session_id = EmberBlog.user_id;
   return hash;
 }
 

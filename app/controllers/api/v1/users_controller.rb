@@ -1,5 +1,6 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V1::UsersController < Api::V1::APIController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :validate_request, only: [:index, :show, :update, :destroy]
    
   respond_to :json
 
@@ -53,5 +54,12 @@ class Api::V1::UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:username, :email, :password)
+    end
+
+    def validate_request
+      @current_user = Api::V1::APIController.validate_request(params)      
+      if @current_user.nil? 
+        return respond_with json: {}
+      end
     end
 end

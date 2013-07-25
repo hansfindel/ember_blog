@@ -67,6 +67,7 @@ function log_in_request(ob, apiKey, email, password, context){
 
 function log_out_request(ob, context){	
 	user_id = EmberBlog.user_id
+	apiKey = EmberBlog.key
 	url = ob.deleteResourceUrl(user_id);
 	$.ajax({
         url: url,
@@ -88,7 +89,7 @@ function log_out_request(ob, context){
                     EmberBlog.set("current_user", false);
 
                     //delete session of local storage
-                    deleteSession();
+                    destroySession();
 
 					context.transitionToRoute('log_in')		
                     return true;

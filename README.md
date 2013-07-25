@@ -10,10 +10,10 @@ This blog is built from the following open source components:
 - [Foundation](http://foundation.zurb.com/) - The UI is designed and accomplished with Zurb Foundation.
 
 ## To Do List
-- Handle user without login
 - Check permissions in users requests
 - Server Side Validation
 - Client Side Validation
+- Handle user without login
 - Optimize queries on server
 - Handle user without connection (internet)
 - Real Time (with pusher or something else)
