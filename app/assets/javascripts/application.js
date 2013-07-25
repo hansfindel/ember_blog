@@ -24,7 +24,7 @@ EmberBlog = Ember.Application.create();
 
 //handles session
 // should be recovered from local storage
-EmberBlog.current_user = false;
+//EmberBlog.current_user = false;
 
 $(document).ready(function(){
 
