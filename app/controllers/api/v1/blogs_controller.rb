@@ -61,7 +61,7 @@ class Api::V1::BlogsController < Api::V1::APIController
     def validate_request
       @current_user = Api::V1::APIController.validate_request(params)      
       if @current_user.nil? 
-        return respond_with json: {}
+        return respond_with json: {}, location: nil
       end
     end
 end

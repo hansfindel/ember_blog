@@ -16,9 +16,9 @@ EmberBlog.RESTConnector = DS.RESTAdapter.extend({
 update_hash = function(hash){
   if (Ember.isEmpty(hash)) hash = {};
   if (Ember.isEmpty(hash.data)) hash.data = {};
-  hash.data.account_id = EmberBlog.SessionToken;
-  hash.data.key = EmberBlog.key;
+  hash.data.app_id = EmberBlog.key;
   hash.data.session_id = EmberBlog.user_id;
+  hash.data.session_token = EmberBlog.SessionToken;
   return hash;
 }
 

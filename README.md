@@ -10,7 +10,7 @@ This blog is built from the following open source components:
 - [Foundation](http://foundation.zurb.com/) - The UI is designed and accomplished with Zurb Foundation.
 
 ## To Do List
-- Server Side Validation
+- Client Side handling of Server Side Validation
 - Client Side Validation
 - Handle user without login
 - Optimize queries on server
@@ -26,4 +26,4 @@ Just make a pullRequest
 ## Copyright / License
 No Copyrights nor License... 
 
-But you should consider making a link to this repo :) 
+But you should consider making a link to this repo if you find it usefull :) 

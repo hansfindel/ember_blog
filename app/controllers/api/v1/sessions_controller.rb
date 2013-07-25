@@ -4,7 +4,7 @@ class Api::V1::SessionsController < ApplicationController
 	def create
 		#puts params.to_s #just for dev
 		apiKey = params[:apiKey]
-		if APIController.validate_registered_app(apiKey)
+		if Api::V1::APIController.validate_registered_app(apiKey)
 			email = params[:email]
 			pass = params[:password]
 			hash = UserManager.log_in(email, pass)

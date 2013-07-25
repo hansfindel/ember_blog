@@ -4,9 +4,11 @@ class Api::V1::APIController < ApplicationController
 	public
 	def self.validate_request options
 		#options = params
-		if validate_registered_app(options["apiKey"])
+		if validate_registered_app(options["app_id"])
+			puts "valid apiKey"
 			@current_user = User.find_by_id(options[:session_id])
-			if @user.session_token != options[:account_id]
+			puts @current_user.attributes.to_s
+			if @current_user.token != options[:session_token]
 				@current_user = nil 
 			end
 			@current_user 
@@ -18,7 +20,7 @@ class Api::V1::APIController < ApplicationController
 	def self.validate_registered_app token
 	    exist = false
 	    app_users.each do |t|
-			if t[:token] == token
+			if t[:key] == token
 		    	exist = true
 		        break
 		    end
@@ -29,7 +31,7 @@ class Api::V1::APIController < ApplicationController
 	private 
 	def self.app_users
 		[
-			{:token => "ApiKeyaaa", :owner => "EmberApp::ApiKey", :key => "ApiKey"}
+			{:token => "ApiToken", :owner => "EmberApp::ApiKey", :key => "ApiKey"}
 		]
 	end
 	
