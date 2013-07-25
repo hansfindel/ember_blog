@@ -68,3 +68,34 @@ EmberBlog.Blog.FIXTURES = [{
   description: "desc2 sd fadsf s",
   comments: []
 }];*/
+
+
+
+EmberBlog.Comment.reopenClass({
+  createRecord: function(params){
+    console.log(this);
+    if(this.valid_params(params)){
+      this._super(params);
+    }
+  }, 
+  valid_params: function(params){
+    valid = true;
+    if(this.invalidDescription(params["description"])){
+      valid = false;
+      this.notify("There must be a description");
+    }
+    return valid;
+  }, 
+  invalidDescription: function(des){
+    return this.presentValue(des);
+  },
+
+  presentValue: function(string){
+    if(string==null || string=="")
+      return true;
+    return false;
+  }, 
+  notify: function(string){
+    console.log(string);
+  }
+})

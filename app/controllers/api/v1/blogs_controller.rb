@@ -29,7 +29,7 @@ class Api::V1::BlogsController < Api::V1::APIController
   def create
     #sleep 1
     @blog = Blog.new(blog_params)
-    @blog.user_id = params[:user_id]
+    @blog.user_id = @current_user.id 
     #puts @blog
     @blog.save
     #sleep 1
