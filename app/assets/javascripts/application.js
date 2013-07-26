@@ -19,6 +19,7 @@
 //= require_self
 //= require ember_blog
 //= require_tree .
+//= require_tree ./zurb_foundation
 
 EmberBlog = Ember.Application.create();
 
@@ -27,7 +28,7 @@ EmberBlog = Ember.Application.create();
 //EmberBlog.current_user = false;
 
 $(document).ready(function(){
-
+	$(document).foundation();
 	initializeSession(); //sets session
 
 	if(!EmberBlog.current_user){

@@ -1,38 +1,68 @@
-<div class="row" style="height:10px;"></div>
-<div class="row">
-	<div class="twelve columns">
-		<h1>Los Blogos</h1>
-		<nav class="top-bar blue-top-bar">
-		  <ul class="title-area">
-		  	{{#if EmberBlog.current_user }}
-		    	<li class="name">{{#linkTo "blogs"}}Blogs{{/linkTo}}</li>
-		    	<li class="name">{{#linkTo "users"}}Authors{{/linkTo}}</li>
-		    	<li class="name"><a href="" {{action "log_out"}}>Log Out</a></li>
-		    {{else}}
-		    	<li class="name">{{#linkTo "log_in"}}Log In{{/linkTo}}</li>
-		    {{/if}}
-		  </ul>
-		</nav>
-		<hr>	
-	</div>
-</div>
-<div class="row">
-	<div class="twelve columns">
-		<p>{{outlet}}</p>
-	</div>
-</div>
+<nav class="top-bar blue-top-bar">
+	<ul class="title-area">
+		<li class="name">
+		  	<h1>
+		  		<a href="/#/">
+		  			Los Blogos
+		  		</a>
+		  	</h1>
+		</li>
+	  	<li class="toggle-topbar menu-icon"><a><span></span></a></li>
+	</ul>
+	<section class="top-bar-section">
+		<!-- Right Nav Section -->
+		<ul class="right">
+			<li class="divider"></li>
+			{{#if EmberBlog.current_user }}
+				<li class="">{{#linkTo "blogs"}}Blogs{{/linkTo}}</li>
+				<li class="divider"></li>
+				<li class="">{{#linkTo "users"}}Authors{{/linkTo}}</li>
+				<li class="divider"></li>
+				<li class=""><a href="" {{action "log_out"}}>Log Out</a></li>
+			{{else}}
+				<li class="">{{#linkTo "log_in"}}Log In{{/linkTo}}</li>
+			{{/if}}
+		</ul>
+	</section>
 
-<div class="row footer">
+</nav>
+<section class="content">
+	<div class="row">
+		<div class="twelve columns">
+			<p>{{outlet}}</p>
+		</div>
+	</div>
+</section>
+<footer class="row footer">	
 	<div class="twelve columns">
 		<hr>
 		<div class="row">
-			<div class="four columns">
-			</div>
+			<div class="four columns"></div>
 			<div class="four columns">
 				<p>Read and leave your thoughts</p>
 			</div>
-			<div class="four columns">
-			</div>
+			<div class="four columns"></div>
 		</div>
 	</div>
-</div>
+</section>
+
+<!--
+	<section id="sidebar" class="hidden" role="complementary">      
+		<div class="main-menu">
+			<h6>Los Blogos</h6>
+			<nav id="sideMenu" role="navigation">
+				<ul id="sideMainNav" class="nav-bar">
+					{{#if EmberBlog.current_user }}
+						<li class="">{{#linkTo "blogs"}}Blogs{{/linkTo}}</li>
+						
+						<li class="">{{#linkTo "users"}}Authors{{/linkTo}}</li>
+						
+						<li class=""><a href="" {{action "log_out"}}>Log Out</a></li>
+					{{else}}
+						<li class="">{{#linkTo "log_in"}}Log In{{/linkTo}}</li>
+					{{/if}}
+				</ul>
+			</nav> 			
+		</div>    	
+	</section>
+--> 
