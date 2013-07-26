@@ -19,7 +19,7 @@
 //= require_self
 //= require ember_blog
 //= require_tree .
-//= require_tree ./zurb_foundation
+// require_tree ./zurb_foundation
 
 EmberBlog = Ember.Application.create();
 
@@ -28,11 +28,12 @@ EmberBlog = Ember.Application.create();
 //EmberBlog.current_user = false;
 
 $(document).ready(function(){
-	$(document).foundation();
+	//$(document).foundation();
 	initializeSession(); //sets session
 
 	if(!EmberBlog.current_user){
 		console.log("redirecting!");
-		EmberBlog.Router.router.transitionTo("log_in");
+		if(window["EmberBlog"])
+			EmberBlog.Router.router.transitionTo("log_in");
 	}	
 })

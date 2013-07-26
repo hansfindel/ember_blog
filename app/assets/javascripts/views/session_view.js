@@ -2,7 +2,8 @@ EmberBlog.LogInView = Ember.View.extend({
   templateName: 'log_in',
   tagName:      'form', 
 
-  submit: function(){
+  submit: function(e){
+    e.preventDefault();
     console.log("log in views submit");
     var email = this.get("email");
     var pass = this.get("password");

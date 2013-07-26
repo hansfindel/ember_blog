@@ -32,12 +32,12 @@ function log_in_request(ob, apiKey, email, password, context){
                     saveSession();
 
                     context.transitionToRoute('blogs')		
-                    return true;
+                    return false;
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
         	alert(xhr.status);
-        	alert(thrownError);
+        	//alert(thrownError);
         }
     });
 }
@@ -74,7 +74,7 @@ function log_out_request(ob, context){
         },
         error: function (xhr, ajaxOptions, thrownError) {
         	alert(xhr.status);
-        	alert(thrownError);
+        	//alert(thrownError);
         }
     });
 	
