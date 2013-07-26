@@ -13,6 +13,9 @@ This blog is built from the following open source components:
 - Handle user without internet connection 
 - Real Time (with pusher or something else)
 - Keep up with the wiki
+- Paginator or Infinite Scroll
+- Searcher & autocomplete
+- Check: Full Mobile Compability
 
 
 ## Contributing
