@@ -7,7 +7,7 @@ class Api::V1::APIController < ApplicationController
 		if validate_registered_app(options["app_id"])
 			#puts "valid apiKey"
 			@current_user = User.find_by_id(options[:session_id])
-			puts @current_user.attributes.to_s if @current_user
+			#puts @current_user.attributes.to_s if @current_user
 			if @current_user.token != options[:session_token]
 				@current_user = nil 
 			end

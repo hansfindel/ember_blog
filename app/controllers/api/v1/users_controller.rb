@@ -6,12 +6,12 @@ class Api::V1::UsersController < Api::V1::APIController
 
   # GET 
   def index
-    respond_with User.all
+    respond_with User.all.includes(:blogs)
   end
 
   # GET /users/1.json
   def show
-    if @blog
+    if @user
     	respond_with @user
     else
       #respond_with json: {status: 404, text: "No user entry found with that id"}
@@ -48,7 +48,7 @@ class Api::V1::UsersController < Api::V1::APIController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find_by_id(params[:id]) 
+      @user = User.includes(:blogs).find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

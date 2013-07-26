@@ -5,7 +5,7 @@ class Api::V1::BlogsController < Api::V1::APIController
 
   # GET 
   def index
-    respond_with Blog.all#, Comment.all
+    respond_with Blog.all.includes([:user, :comments])  #, Comment.all
   end
 
   # GET /blogs/1.json
@@ -50,7 +50,7 @@ class Api::V1::BlogsController < Api::V1::APIController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
-      @blog = Blog.find_by_id(params[:id]) 
+      @blog = Blog.includes([:user, :comments]).find_by_id(params[:id]) 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
