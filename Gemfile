@@ -5,8 +5,13 @@ gem 'rails', '4.0.0.rc1'
 # ember  
 gem 'ember-rails'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :development do 
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+end
+group :production do 
+  gem "pg"
+end
 
 gem 'quiet_assets'
 # Use SCSS for stylesheets
@@ -14,7 +19,7 @@ gem 'sass-rails', '~> 4.0.0.rc1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-
+gem 'closure-compiler'
 # Use CoffeeScript for .js.coffee assets and views
 #gem 'coffee-rails', '~> 4.0.0'
 

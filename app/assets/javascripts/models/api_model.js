@@ -71,11 +71,9 @@ EmberBlog.APIModel.reopenClass({
   validations: [],
   require_presence_of: function(params_array, default_message){
   	validations = this.validations;
-  	console.log(params_array);
   	for(var i = 0; i < params_array.length; i++)
 	{	
-		var name = params_array[i];
-		console.log(name);
+		var name = params_array[i];		
 		var message = this.get_message(default_message, name, "required");		
 		var validation = [this.presentValue, name, message];
 		//console.log(validations);
