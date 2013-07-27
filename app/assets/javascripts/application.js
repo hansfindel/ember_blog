@@ -21,7 +21,9 @@
 //= require_tree .
 // require_tree ./zurb_foundation
 
-EmberBlog = Ember.Application.create();
+EmberBlog = Ember.Application.create({
+	rootElement: "#log_blogos_main"
+});
 
 //handles session
 // should be recovered from local storage
