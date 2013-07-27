@@ -8,14 +8,14 @@ EmberBlog.APIModel.reopenClass({
   }, 
 
   createRecord: function(params){
-    console.log(this);
+    //console.log(this);
     if(this.valid_params(params)){
       this._super(params);
     }
   }, 
   valid_params: function(params){
   	var errors = this.get_validation_errors(params);
-  	if(errors == []){
+  	if(errors.length == 0){
   		return true;
   	}else{
   		for(var i = 0; i < errors.length; i++){

@@ -11,7 +11,7 @@ EmberBlog.NewBlogView = Ember.View.extend({
     	expl = this.get("explanation"), 
     	cont = this.get("description");
     this.get('controller').send('addBlog', titl, expl, cont);
-    console.log("asdf");
+    //console.log("asdf");
     this.set('title', "");
     this.set('explanation', "");
     this.set('description', "");

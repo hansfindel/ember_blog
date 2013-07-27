@@ -3,8 +3,8 @@ EmberBlog.BlogsController = Ember.ArrayController.extend({
 
 
 	showBlog: function(b){
-		console.log("blog=");
-		console.log(blog);
+		//console.log("blog=");
+		//console.log(blog);
 		if(blog && blog.id!="blog"){
 			blog.deactivate();	
 		}
@@ -23,9 +23,8 @@ EmberBlog.BlogController = Ember.ObjectController.extend({
 		b.startEdit();
 	},
 	endUpdate: function(b){
-		//b.get("transaction").commit();
 		b.endEdit();
-	}, 
+	},
 
 	cancel: function(b){
 		//console.log("blog controller cancel");
@@ -55,6 +54,7 @@ EmberBlog.BlogController = Ember.ObjectController.extend({
 	updateComment: function(c){
 		//is not being used... this should commit the store or transaction
 		blog.endEditingComment();
+		console.log("sdfaf")
 	}
 
 });
@@ -63,13 +63,14 @@ EmberBlog.NewBlogController = Ember.ObjectController.extend({
 	resourceType: EmberBlog.Blog, 
 
 	addBlog: function(title, explanation, description){
-		console.log(title);
-		console.log(explanation);
-		console.log(description);
+		//console.log(title);
+		//console.log(explanation);
+		//console.log(description);
 		user_id = EmberBlog.user_id
-		EmberBlog.Blog.createRecord({title:title, explanation: explanation, description: description, user_id: user_id});
+		params = {title:title, explanation: explanation, description: description, user_id: user_id};
+		EmberBlog.Blog.createRecord(params);
 		this.get("store").commit();
-		console.log("new blog controller");
+		//console.log("new blog controller");
 	}, 
 	cancel: function(){
 		console.log("canceling form");
@@ -78,10 +79,13 @@ EmberBlog.NewBlogController = Ember.ObjectController.extend({
 	}
 });
 
+
 EmberBlog.EditBlogController = Ember.ObjectController.extend({
 	updateEntry: function(b){
-		console.log("updating entry in blog controller");
-
-	}
+		console.log("updateEntry:")
+		console.log(b);
+		b.endEdit();
+		b.get("transaction").commit();
+	} 
 
 })
