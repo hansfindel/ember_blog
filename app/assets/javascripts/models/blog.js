@@ -102,44 +102,6 @@ EmberBlog.Blog.FIXTURES = [{
 
 
 EmberBlog.Blog.reopenClass({
-  createRecord: function(params){
-    console.log(this);
-    if(this.valid_params(params)){
-      this._super(params);
-    }
-  }, 
-  valid_params: function(params){
-    valid = true;
-    if(this.invalidTitle(params["title"])){
-      valid = false;
-      this.notify("There must be a title");
-    }
-    if(this.invalidExplanation(params["explanation"])){
-      valid = false;
-      this.notify("There must be an explanation");
-    }
-    if(this.invalidDescription(params["description"])){
-      valid = false;
-      this.notify("There must be a description");
-    }
-    return valid;
-  }, 
-  invalidTitle: function(title){
-    return this.presentValue(title);
-  },
-  invalidExplanation: function(exp){
-    return this.presentValue(exp);
-  },
-  invalidDescription: function(des){
-    return this.presentValue(des);
-  },
-
-  presentValue: function(string){
-    if(string==null || string=="")
-      return true;
-    return false;
-  }, 
-  notify: function(string){
-    console.log(string);
-  }
-})
+  validations: [] 
+});
+EmberBlog.Blog.require_presence_of(["title", "explanation", "description"]);

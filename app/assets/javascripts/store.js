@@ -85,6 +85,4 @@ EmberBlog.Store = DS.Store.extend({
 
 
 
-
-
 //EmberBlog.Store.adapter.serializer.map('EmberBlog.Post', {comments: {'embedded': 'load'}});

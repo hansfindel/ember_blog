@@ -1,5 +1,5 @@
-EmberBlog.Comment = DS.Model.extend({
-//EmberBlog.Comment = EmberBlog.APIModel.extend({  
+//EmberBlog.Comment = DS.Model.extend({
+EmberBlog.Comment = EmberBlog.APIModel.extend({  
   description: DS.attr('string'),
   //blogId: DS.attr('number')
   blog: DS.belongsTo('EmberBlog.Blog'), 
@@ -88,14 +88,5 @@ EmberBlog.Comment.reopenClass({
   }, 
   invalidDescription: function(des){
     return this.presentValue(des);
-  },
-
-  presentValue: function(string){
-    if(string==null || string=="")
-      return true;
-    return false;
-  }, 
-  notify: function(string){
-    console.log(string);
   }
 })
