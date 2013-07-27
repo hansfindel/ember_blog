@@ -31,11 +31,12 @@ EmberBlog = Ember.Application.create({
 
 $(document).ready(function(){
 	//$(document).foundation();
-	initializeSession(); //sets session
+	initializeSession(); //sets session if there is one
 
 	if(!EmberBlog.current_user){
 		console.log("redirecting!");
-		if(window["EmberBlog"])
+		if(window["EmberBlog"]){
 			EmberBlog.Router.router.transitionTo("log_in");
+		}
 	}	
 })

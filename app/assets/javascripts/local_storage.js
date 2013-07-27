@@ -58,6 +58,8 @@ function saveSession(){
 		store_record( "user_id",  EmberBlog.user_id );
 		store_record( "email",    session.get("email") );
 		store_record( "username", session.get("username") );
+		
+		EmberBlog.set("current_user", EmberBlog.user_id)
 	}	
 }
 function destroySession(){
@@ -67,4 +69,5 @@ function destroySession(){
 		removeKey("email");
 		removeKey("username");
 	}
+	EmberBlog.set("current_user", null)
 }

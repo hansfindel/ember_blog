@@ -16,6 +16,8 @@ EmberBlog.Router.map(function() {
 EmberBlog.IndexRoute = Ember.Route.extend({
 	redirect: function(){
 		//EmberBlog.singleRouter = EmberBlog.singleRouter || this;
+		initializeSession(); // loads the current session if it hasn't been loaded yet
+		console.log(EmberBlog.current_user)
 		if(EmberBlog.current_user){
 				this.transitionTo("blogs");
 		}else{
