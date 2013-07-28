@@ -30,4 +30,5 @@ EmberBlog.User.reopenClass({
 });
 EmberBlog.User.require_presence_of(["username", "email", "password"]);
 EmberBlog.User.require_email_format_of(["email"]);
-EmberBlog.User.require_username_format_of(["email"]);
+EmberBlog.User.require_username_format_of(["username"]);
+EmberBlog.User.require_length_validation_of(["password"], 4,16);

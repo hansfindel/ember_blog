@@ -45,6 +45,24 @@ EmberBlog.APIModel.reopenClass({
     }
     return false;
   },
+  defineValidSize: function(min, max){
+  	return function(string){
+	    min = min || -1;
+	    max = max || string.length + 1;
+	    //console.log(min, "- - -", max);
+	    if(typeof(string) == "string"){
+	      if(string.length < min){
+	        return false;
+	      }
+	      if(string.length > max){
+	        return false;
+	      }
+	      return true;
+	    }
+	    return false;
+  	}
+  },
+
   emailFormat: function(s){
     var format = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/; 
     return format.test(s);
@@ -103,16 +121,27 @@ EmberBlog.APIModel.reopenClass({
 	}
 	return validations;
   },
-  
+  require_length_validation_of: function(params_array, min, max, default_message){
+  	validations = this.validations;
+  	for(var i = 0; i < params_array.length; i++)
+	{	
+		var name = params_array[i];
+		var message = this.get_message(default_message, name, "not a valid length");		
+		var validation = [this.defineValidSize(min, max), name, message];
+		validations.push(validation);
+	}
+	return validations;
+  },
   get_validation_errors: function(params){
-  	validations = this.validations; // it is needles...
+  	validations = this.validations; 
   	var errors = [];
   	for(var i = 0; i < validations.length; i++){
   		// loop through validations checking the params
   		var validation = validations[i];
   		var evaluator = validation[0];
   		var evaluatee = validation[1];
-  		if(!evaluator(params[evaluatee])){
+  		var value = params[evaluatee];
+  		if(!evaluator(value)){
   			var message = validation[2];
   			errors.push(message);
   		}
