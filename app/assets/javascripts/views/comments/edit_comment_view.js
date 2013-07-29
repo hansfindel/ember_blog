@@ -8,9 +8,9 @@ EmberBlog.EditCommentView = Ember.View.extend({
 
   submit: function(event){
     event.preventDefault();
-    console.log("submit event at editComment")
-    blog.endEditingComment(); //must be before sending the transaction or after response is received
-    this.get("controller").get("transaction").commit();
+    //console.log("submit event at editComment")
+    //blog.endEditingComment(); //must be before sending the transaction or after response is received
+    //this.get("controller").get("transaction").commit();
     //console.log(this);
     //this.get("controller").get("store").commit();        
   }

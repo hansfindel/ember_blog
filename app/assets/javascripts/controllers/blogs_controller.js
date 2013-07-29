@@ -47,15 +47,15 @@ EmberBlog.BlogController = Ember.ObjectController.extend({
 
 	editComment: function(c){
 		//console.log(blog.editingComment()):
-		blog.endEditingComment();
-		blog.set("editingCommentId", c.id); //should be moved? could change with refactoring... 
+		//blog.endEditingComment();
+		//blog.set("editingCommentId", c.id); //should be moved? could change with refactoring... 
 		c.startEdit();
 	}, 
 	updateComment: function(c){
-		//is not being used... this should commit the store or transaction
-		blog.endEditingComment();
-		console.log("sdfaf")
-	}
+		c.endEdit();
+		//c.set("description", c.get("description"))
+		c.get("transaction").commit();		
+	} 
 
 });
 
@@ -85,7 +85,7 @@ EmberBlog.EditBlogController = Ember.ObjectController.extend({
 		console.log("updateEntry:")
 		console.log(b);
 		b.endEdit();
-		b.get("transaction").commit();
+		//b.get("transaction").commit();
+		b.save();
 	} 
-
 })

@@ -1,5 +1,19 @@
 EmberBlog.APIModel = DS.Model.extend({
 // should simplify validation on models
+//all instances should have these..
+  isValid: function(){
+    //override default method isValid
+    return this.constructor.valid_params(this.toJSON())
+  }, 
+  save: function(){
+  	if(this.isValid()){
+  		console.log("saving..");
+    	this.get("transaction").commit();	
+  	}else{
+  		console.log("not valid");
+  	}
+  }
+
 })
 
 EmberBlog.APIModel.reopenClass({ 

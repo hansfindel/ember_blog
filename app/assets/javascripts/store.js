@@ -30,7 +30,15 @@ EmberBlog.RESTAdapter = EmberBlog.RESTConnector.extend({
     data = this._super(url, type, hash);
     return data;
   }, 
-
+  handleError: function(store, records, jqXHR){
+    console.log("handling error...")
+    ownHandleError(store, records, jqXHR);
+  },
+  shouldSave: function(record){
+    // check if valid update
+    //isValid(record);
+    return this._super(record);
+  },
   didFindRecord: function(store, type, payload, id) {
     //console.log("didFindRecord: function(store, type, payload, id)");
     //console.log(store);
@@ -60,7 +68,10 @@ EmberBlog.RESTAdapter = EmberBlog.RESTConnector.extend({
           console.log("payload:");
           console.log(payload);
           return {"blog": {"id":0}}
-        }        
+        }
+    }else if(payload.status === 422){
+      console.log("status 422");
+      console.log(payload)        
     }else{
       console.log("ok: ");
       var ok = this._super(store, type, payload, id);  
@@ -86,3 +97,28 @@ EmberBlog.Store = DS.Store.extend({
 
 
 //EmberBlog.Store.adapter.serializer.map('EmberBlog.Post', {comments: {'embedded': 'load'}});
+
+
+function ownHandleError(store, records, jqXHR) {
+     var responseHash = this.parseResponseText(jqXHR);
+      console.log(records);
+      console.log(responseHash);
+     if (jqXHR.status === 422) {
+       records.forEach(function(record) {
+         var errors = this.materializeValidationErrors(record, responseHash['errors']);
+ 
+         store.recordWasInvalid(record, errors);
+       });
+     }else{
+       this._super();
+     }
+  }
+
+
+  //shouldSave
+function isValid(record){
+  console.log("is valid record?")
+  console.log(record)
+  record.isValid();
+  return true;
+}

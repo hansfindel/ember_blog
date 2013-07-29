@@ -3,8 +3,14 @@
 		{{view Ember.TextArea valueBinding="description" placeholder="Title"}}
 	</div>
 	<div class="two columns">
-		<button type="submit" class="button">
-			{{#if id}}Update{{else}}Create{{/if}}
-		</button>
+		{{#if id}}
+			<button {{action "updateComment" this}} class="button">
+				Update
+			</button>
+		{{else}}
+			<button type="submit" class="button">
+				Create
+			</button>
+		{{/if}}
 	</div>
 </div>
