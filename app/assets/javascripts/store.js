@@ -46,6 +46,20 @@ EmberBlog.RESTAdapter = EmberBlog.RESTConnector.extend({
   find: function(store, type, id){
     return ownFind(store, type, id, this);
   },
+  createRecord: function(store, type, record){
+    return ownCreateRecord(store, type, record, this);
+  }, 
+  didError: function(store, type, record, xhr){
+    if(xhr.status === 422){
+      console.log("422")
+      console.log(xhr);
+      //handle handle422
+    }else{
+      console.log("else 422")
+      this._super(store, type, record, xhr);
+      throw xhr;
+    }
+  },
   didFindRecord: function(store, type, payload, id) {
     //console.log("didFindRecord: function(store, type, payload, id)");
     //console.log(store);
@@ -62,7 +76,7 @@ EmberBlog.RESTAdapter = EmberBlog.RESTConnector.extend({
       console.log("ok: ");
       var ok = this._super(store, type, payload, id);  
       
-      console.log(ok);
+      //console.log(ok);
       return ok;
     }    
   }
@@ -128,6 +142,23 @@ function ownFind(store, type, id, handler){
         adapter.didFindRecord(store, type, json, id);
     }).then(null, handler.rejectionHandler);
 }
+
+function ownCreateRecord(store, type, record, handler) {
+    var root = handler.rootForType(type);
+    var adapter = handler;
+    var data = {};
+
+    data[root] = handler.serialize(record, { includeId: true });
+
+    return handler.ajax(handler.buildURL(root), "POST", {
+      data: data
+    }).then(function(json){
+      adapter.didCreateRecord(store, type, record, json);
+    }, function(xhr) {
+      adapter.didError(store, type, record, xhr);
+    }).then(null, adapter.rejectionHandler);
+  }
+
 function ownRejectionHandler(reason, handler){
   /*  Default behaviour
   Ember.Logger.error(reason, reason.message);

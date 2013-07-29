@@ -16,10 +16,9 @@ EmberBlog.BlogRoute = Ember.Route.extend({
 	model: function(params) {
 		blog = EmberBlog.Blog.find(params.blog_id);
 		//console.log("blog find");
-		//console.log(blog);
 		//console.log(blog.get("id"));
-		console.log("asdfasdfa passing throuth blog router")
-		console.log(blog)
+		//console.log("asdfasdfa passing throuth blog router")
+		//console.log(blog)
 		return blog;
 	}
 });
