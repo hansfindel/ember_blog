@@ -4,7 +4,7 @@ EmberBlog.BlogsRoute = Ember.Route.extend({
 	model: function() {		
 		// body...
 		initializeSession(); //sets session if inexistent
-		
+
 		blogs = EmberBlog.Blog.find();
 		//console.log(blogs);
 		return blogs;
@@ -18,11 +18,8 @@ EmberBlog.BlogRoute = Ember.Route.extend({
 		//console.log("blog find");
 		//console.log(blog);
 		//console.log(blog.get("id"));
-
-		if(blog.get("id") != "44") //the intention is to redirect to blogs when not found			
-			return blog;
-		else{
-			this.transitionTo("blogs");
-		}
+		console.log("asdfasdfa passing throuth blog router")
+		console.log(blog)
+		return blog;
 	}
 });

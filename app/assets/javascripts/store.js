@@ -30,14 +30,21 @@ EmberBlog.RESTAdapter = EmberBlog.RESTConnector.extend({
     data = this._super(url, type, hash);
     return data;
   }, 
+  rejectionHandler: function(reason){
+    return ownRejectionHandler(reason, this);  //this -> adapter
+  },
+  /*
   handleError: function(store, records, jqXHR){
     console.log("handling error...")
     ownHandleError(store, records, jqXHR);
   },
   shouldSave: function(record){
     // check if valid update
-    //isValid(record);
     return this._super(record);
+  },
+  */
+  find: function(store, type, id){
+    return ownFind(store, type, id, this);
   },
   didFindRecord: function(store, type, payload, id) {
     //console.log("didFindRecord: function(store, type, payload, id)");
@@ -46,29 +53,8 @@ EmberBlog.RESTAdapter = EmberBlog.RESTConnector.extend({
     //console.log(payload);
     //console.log(id);
     if (payload.status === 404) {
-        console.log("404 - not found!");
-        //console.log(this);
-        if(id){
-          //if has id redirect to index
-          //this.transitionTo("index");
-          /*
-          var root = this.rootForType(type);
-          var url = this.buildURL(root, null);
-          //console.log(root);
-          //console.log(url);          
-          return this.ajax(url, "GET").
-            then(function(json){
-              return json;
-                //var fixed = this._super(store, type, json, null);
-                //console.log(fixed);
-                //return fixed; 
-                //
-            });*/          
-          //return this._super(store, type, payload, null);
-          console.log("payload:");
-          console.log(payload);
-          return {"blog": {"id":0}}
-        }
+        console.log("404 - not found!!!!");
+        return handle404(store, type, payload, id, this);        
     }else if(payload.status === 422){
       console.log("status 422");
       console.log(payload)        
@@ -78,8 +64,7 @@ EmberBlog.RESTAdapter = EmberBlog.RESTConnector.extend({
       
       console.log(ok);
       return ok;
-    }
-    
+    }    
   }
 
 });
@@ -114,11 +99,43 @@ function ownHandleError(store, records, jqXHR) {
      }
   }
 
+function handle404(store, type, payload, id, handler){
+  console.log(handler)
+  var root = handler.rootForType(type);
+  var root_index = root + "s.index";
+  console.log(root)
+  console.log(root_index);  
+  return EmberBlog.Router.router.transitionTo(root_index);
+}
+function ownFind(store, type, id, handler){
+  /*
+    //default Find
+    var root = this.rootForType(type), adapter = this;
 
-  //shouldSave
-function isValid(record){
-  console.log("is valid record?")
-  console.log(record)
-  record.isValid();
-  return true;
+    return this.ajax(this.buildURL(root, id), "GET").
+      then(function(json){
+        adapter.didFindRecord(store, type, json, id);
+    }).then(null, rejectionHandler);
+  */
+  //return handler._super(store, type, id);
+  var root    = handler.rootForType(type), 
+      adapter = handler;
+
+  return handler.ajax(handler.buildURL(root, id), "GET").
+      then(function(json){
+        //console.log("received this from ajax call:")
+        //console.log(json);
+        adapter.didFindRecord(store, type, json, id);
+    }).then(null, handler.rejectionHandler);
+}
+function ownRejectionHandler(reason, handler){
+  /*  Default behaviour
+  Ember.Logger.error(reason, reason.message);
+  throw reason;
+  */
+  //console.log("rejectionHandler...")
+  //console.log(reason)
+  if(reason.error){ 
+    console.log(reason);
+  }
 }

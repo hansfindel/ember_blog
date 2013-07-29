@@ -33,7 +33,8 @@ EmberBlog.NewUserController = Ember.ObjectController.extend({
 EmberBlog.EditUserController = Ember.ObjectController.extend({
 	updateUser: function(u){
 		//this.get("store").commit();		
-		this.get("transaction").commit();
+		//this.get("transaction").commit();
+		u.save();
 	}
 
 })

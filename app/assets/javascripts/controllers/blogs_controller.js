@@ -6,7 +6,12 @@ EmberBlog.BlogsController = Ember.ArrayController.extend({
 		//console.log("blog=");
 		//console.log(blog);
 		if(blog && blog.id!="blog"){
-			blog.deactivate();	
+			if(blog.isValid()){
+				blog.deactivate();		
+			}
+			else{
+				console.log("blog is invalid");
+			}
 		}
 		blog = b;
 		blog.activate();
@@ -18,8 +23,8 @@ EmberBlog.BlogController = Ember.ObjectController.extend({
 	resourceType: EmberBlog.Blog,  
 
 	editEntry: function(b){
-		console.log("editing entry");
-		console.log(b);
+		//console.log("editing entry");
+		//console.log(b);
 		b.startEdit();
 	},
 	endUpdate: function(b){
@@ -54,7 +59,8 @@ EmberBlog.BlogController = Ember.ObjectController.extend({
 	updateComment: function(c){
 		c.endEdit();
 		//c.set("description", c.get("description"))
-		c.get("transaction").commit();		
+		//c.get("transaction").commit();		
+		c.save();
 	} 
 
 });
@@ -69,7 +75,7 @@ EmberBlog.NewBlogController = Ember.ObjectController.extend({
 		user_id = EmberBlog.user_id
 		params = {title:title, explanation: explanation, description: description, user_id: user_id};
 		EmberBlog.Blog.createRecord(params);
-		this.get("store").commit();
+		this.get("store").commit(); //embed in overriden createRecord 
 		//console.log("new blog controller");
 	}, 
 	cancel: function(){
@@ -82,8 +88,8 @@ EmberBlog.NewBlogController = Ember.ObjectController.extend({
 
 EmberBlog.EditBlogController = Ember.ObjectController.extend({
 	updateEntry: function(b){
-		console.log("updateEntry:")
-		console.log(b);
+		//console.log("updateEntry:")
+		//console.log(b);
 		b.endEdit();
 		//b.get("transaction").commit();
 		b.save();

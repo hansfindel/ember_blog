@@ -10,7 +10,7 @@
 			{{view Ember.TextField valueBinding="password" type="password" placeholder="Password"}}
 		</li>
 		<li>
-			<button type="submit" class="button large expand">
+			<button type="submit" {{action "updateUser" this}} class="button large expand">
 				Update
 			</button>
 		</li>

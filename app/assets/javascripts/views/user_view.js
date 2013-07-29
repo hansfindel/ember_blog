@@ -7,7 +7,7 @@ EmberBlog.NewUserView = Ember.View.extend({
   templateName: 'users/form', 
   tagName:      'form', 
 
-  submit: function(){
+  submit: function(e){
     //console.log("new comment views submit");
     var username = this.get("username"), 
     	email    = this.get("email"), 
@@ -24,8 +24,10 @@ EmberBlog.EditUserView = Ember.View.extend({
   templateName: 'users/form', 
   tagName:      'form', 
 
-  submit: function(){
-    console.log("edit blog view - submit")
+  //deletable
+  event_submit: function(e){
+    e.preventDefault();
+    console.log("edit user view - submit")
     this.get("controller").updateUser();
     isEditing = false;
     return false;
