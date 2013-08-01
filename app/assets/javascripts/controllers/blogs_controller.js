@@ -75,7 +75,8 @@ EmberBlog.NewBlogController = Ember.ObjectController.extend({
 		user_id = EmberBlog.user_id
 		params = {title:title, explanation: explanation, description: description, user_id: user_id};
 		EmberBlog.Blog.createRecord(params);
-		this.get("store").commit(); //embed in overriden createRecord 
+		this.get("store").commit(); 
+		
 		//console.log("new blog controller");
 	}, 
 	cancel: function(){

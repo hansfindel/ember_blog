@@ -64,6 +64,7 @@ EmberBlog.RESTAdapter = EmberBlog.RESTConnector.extend({
     //console.log("didFindRecord: function(store, type, payload, id)");
     //console.log(store);
     //console.log(type);    
+
     //console.log(payload);
     //console.log(id);
     if (payload.status === 404) {
@@ -153,7 +154,20 @@ function ownCreateRecord(store, type, record, handler) {
     return handler.ajax(handler.buildURL(root), "POST", {
       data: data
     }).then(function(json){
-      adapter.didCreateRecord(store, type, record, json);
+      //console.log("own create record .. fix")
+      var root = handler.rootForType(type)
+      //console.log(root);
+      expectedJSON = json[root]
+      if(expectedJSON == undefined){
+        adapter.didCreateRecord(store, type, record, json);
+      }else{
+        console.log("in here...")
+        var id = expectedJSON["id"]
+        console.log(expectedJSON)
+        console.log(id)
+        record.set("id", id)
+        adapter.didCreateRecord(store, type, record, expectedJSON);
+      }
     }, function(xhr) {
       adapter.didError(store, type, record, xhr);
     }).then(null, adapter.rejectionHandler);

@@ -8,7 +8,7 @@ EmberBlog.APIModel = DS.Model.extend({
   save: function(){
   	if(this.isValid()){
   		console.log("saving..");
-    	this.get("transaction").commit();	
+    	this.get("store").commit();	
   	}else{
   		console.log("not valid");
   	}
