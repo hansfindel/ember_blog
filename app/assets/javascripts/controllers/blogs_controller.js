@@ -1,7 +1,15 @@
 EmberBlog.BlogsController = Ember.ArrayController.extend({
 	sortProperties: ["id"], 
+	page: 1, 
 
-
+	addMore: function(){
+		//console.log("more!!")
+		//console.log(this.page)
+		this.page = this.page + 1
+		EmberBlog.addParam("blog_page", this.page)
+		more_blogs = EmberBlog.Blog.find()
+		console.log(more_blogs);		
+	},
 	showBlog: function(b){
 		//console.log("blog=");
 		//console.log(blog);

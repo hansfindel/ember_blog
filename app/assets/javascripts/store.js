@@ -7,6 +7,10 @@ var apiAdapter = DS.RESTAdapter.create({
 EmberBlog.key = "ApiKey";
 EmberBlog.SessionToken = 'SessionToken';
 EmberBlog.user_id = "user_id";
+EmberBlog.otherParams = {};
+EmberBlog.addParam = function(key, value){
+  EmberBlog.otherParams[key] = value
+}
 
 EmberBlog.RESTConnector = DS.RESTAdapter.extend({
   namespace: 'api/v1',
@@ -19,6 +23,16 @@ update_hash = function(hash){
   hash.data.app_id = EmberBlog.key;
   hash.data.session_id = EmberBlog.user_id;
   hash.data.session_token = EmberBlog.SessionToken;
+  
+  var keys = Object.keys(EmberBlog.otherParams)
+  if(keys.length > 0){ 
+    for(var i = 0; i < keys.length; i++){
+      key = keys[i]
+      value = EmberBlog.otherParams[key]
+      hash.data[key] = value
+    }
+  }
+  
   return hash;
 }
 

@@ -5,7 +5,10 @@ class Api::V1::BlogsController < Api::V1::APIController
 
   # GET 
   def index
-    respond_with Blog.all.includes([:user, :comments])  #, Comment.all
+    page = params[:blog_page] || 1
+    @blogs = Blog.all.includes([:user, :comments]).page(page).per(5)
+    respond_with @blogs  #, Comment.all
+    #respond_with Blog.all.includes([:user, :comments]).page(page).per(8)
   end
 
   # GET /blogs/1.json
