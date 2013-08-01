@@ -52,3 +52,6 @@ gem 'thin'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# adding pagination
+gem 'kaminari'
