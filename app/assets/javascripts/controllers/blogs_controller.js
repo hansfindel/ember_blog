@@ -7,8 +7,9 @@ EmberBlog.BlogsController = Ember.ArrayController.extend({
 		//console.log(this.page)
 		this.page = this.page + 1
 		EmberBlog.addParam("blog_page", this.page)
-		more_blogs = EmberBlog.Blog.find()
-		console.log(more_blogs);		
+		EmberBlog.Blog.find()
+		//more_blogs = EmberBlog.Blog.find()
+		//console.log(more_blogs);		
 	},
 	showBlog: function(b){
 		//console.log("blog=");
