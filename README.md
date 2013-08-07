@@ -24,7 +24,7 @@ There are a few tutorials to learn to use this framework. But many of those use 
 **Hacked** 
 - Log in with persistent sessions based on keys. 
 - "Infinite scroll" for blogs
-- ClientSide Validation of models
+- ClientSide Validation for models
 
 ## To Do List
 - Keep up with the wiki
