@@ -16,7 +16,14 @@ There are a few tutorials to learn to use this framework. But many of those use 
 - [This pages wiki](https://github.com/hansfindel/ember_blog/wiki/Create-a-new-Ember-App) - It still is an ongoing project. 
 - [Tony Coconate's Tutorial](http://www.devmynd.com/blog/2013-3-rails-ember-js) - I found it was a very helpful tutorial to learn the basics. 
 
-
+## Features
+# *Basic
+- CRUD of resources
+- Nested & Associated resources
+# *Hacked 
+- Log in with persistent sessions based on keys. 
+- "Infinite scroll" for blogs
+- ClientSide Validation of models
 
 ## To Do List
 - Keep up with the wiki
