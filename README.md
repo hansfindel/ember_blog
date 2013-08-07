@@ -11,11 +11,11 @@ This blog is built from the following open source components:
 
 ## To Do List
 - Handle user without internet connection 
-- Real Time (with pusher or something else)
 - Keep up with the wiki
 - Searcher & autocomplete
-- Check: Full Mobile Compability
 
+## Done by others
+- Real Time (with pusher or something else) -> check [https://github.com/kristianmandrup/ember-pusher](https://github.com/kristianmandrup/ember-pusher)
 
 ## Contributing
 EmberBlog - Los Blogos is **100% free** and **open-source**. I encourage and support an active, healthy community that accepts contributions from the public. I'd like you to be a part of that community.
