@@ -17,11 +17,11 @@ There are a few tutorials to learn to use this framework. But many of those use 
 - [Tony Coconate's Tutorial](http://www.devmynd.com/blog/2013-3-rails-ember-js) - I found it was a very helpful tutorial to learn the basics. 
 
 ## Features
-**Basic
+**Basic**
 - CRUD of resources
 - Nested & Associated resources
 
-**Hacked 
+**Hacked** 
 - Log in with persistent sessions based on keys. 
 - "Infinite scroll" for blogs
 - ClientSide Validation of models
