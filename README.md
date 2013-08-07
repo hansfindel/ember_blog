@@ -15,7 +15,7 @@ This blog is built from the following open source components:
 - Searcher & autocomplete
 
 ## Done by others
-- Real Time (with pusher or something else) -> check [https://github.com/kristianmandrup/ember-pusher](https://github.com/kristianmandrup/ember-pusher)
+- Real Time (with pusher or something else) -> check [https://github.com/kristianmandrup/ember-pusher](https://github.com/kristianmandrup/ember-pusher) or a tutorial at [http://livsey.org/blog/2013/02/10/integrating-pusher-with-ember/](http://livsey.org/blog/2013/02/10/integrating-pusher-with-ember/)
 
 ## Contributing
 EmberBlog - Los Blogos is **100% free** and **open-source**. I encourage and support an active, healthy community that accepts contributions from the public. I'd like you to be a part of that community.
