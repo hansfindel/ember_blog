@@ -5,12 +5,20 @@ Learning to build an ember application
 
 This blog is built from the following open source components:
 
-- [Ruby on Rails](https://github.com/rails/rails) - The back end API is a Rails app. It responds to requests (almost RESTfully) in JSON.
+- [Ruby on Rails](https://github.com/rails/rails) - The back end API is a Rails app. It responds to requests (almost RESTfully) in a JSON format.
 - [EmberRails](https://github.com/emberjs/ember-rails) - The front end is an Ember.js app that communicates with the Rails API. 
-- [Foundation](http://foundation.zurb.com/) - The UI is designed and accomplished with Zurb Foundation.
+- [Foundation](http://foundation.zurb.com/) - The UI is designed and accomplished with Zurb Foundation. It has a similar structure with bootstrap, so I decided to test it as well. 
+
+## Learning Ember.js
+
+There are a few tutorials to learn to use this framework. But many of those use other tools to accomplish some of the frameworks functionalities. In the following links, you should find good references to learn Ember.js
+ 
+- [This pages wiki](https://github.com/hansfindel/ember_blog/wiki/Create-a-new-Ember-App) - It still is an ongoing project. 
+- [Tony Coconate's Tutorial](http://www.devmynd.com/blog/2013-3-rails-ember-js) - I found it was a very helpful tutorial to learn the basics. 
+
+
 
 ## To Do List
-- Handle user without internet connection 
 - Keep up with the wiki
 - Searcher & autocomplete
 
