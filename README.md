@@ -13,7 +13,7 @@ This blog is built from the following open source components:
 
 There are a few tutorials to learn to use this framework. But many of those use other tools to accomplish some of the frameworks functionalities. The "official tutorial" linked in the page is a outdated and some of its lessons doesn't apply anymore.
  
-- [This pages wiki](https://github.com/hansfindel/ember_blog/wiki/Create-a-new-Ember-App) - It still is an ongoing project. 
+- [Ember Setup + Simple CRUD](https://github.com/hansfindel/ember_blog/wiki/Create-a-new-Ember-App) - Not finished yet
 
 ## Features
 **Basic**
