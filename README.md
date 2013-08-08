@@ -11,10 +11,9 @@ This blog is built from the following open source components:
 
 ## Learning Ember.js
 
-There are a few tutorials to learn to use this framework. But many of those use other tools to accomplish some of the frameworks functionalities. In the following links, you should find good references to learn Ember.js
+There are a few tutorials to learn to use this framework. But many of those use other tools to accomplish some of the frameworks functionalities. The "official tutorial" linked in the page is a outdated and some of its lessons doesn't apply anymore.
  
 - [This pages wiki](https://github.com/hansfindel/ember_blog/wiki/Create-a-new-Ember-App) - It still is an ongoing project. 
-- [Tony Coconate's Tutorial](http://www.devmynd.com/blog/2013-3-rails-ember-js) - I found it was a very helpful tutorial to learn the basics. 
 
 ## Features
 **Basic**
@@ -31,11 +30,12 @@ There are a few tutorials to learn to use this framework. But many of those use 
 - Searcher & autocomplete
 
 ## Done by others
-- Real Time (with pusher or something else) -> check [https://github.com/kristianmandrup/ember-pusher](https://github.com/kristianmandrup/ember-pusher) or a tutorial at [http://livsey.org/blog/2013/02/10/integrating-pusher-with-ember/](http://livsey.org/blog/2013/02/10/integrating-pusher-with-ember/)
+- Real Time (with pusher or something else): [https://github.com/kristianmandrup/ember-pusher](https://github.com/kristianmandrup/ember-pusher), [http://livsey.org/blog/2013/02/10/integrating-pusher-with-ember/](http://livsey.org/blog/2013/02/10/integrating-pusher-with-ember/)
 
 ## Contributing
-EmberBlog - Los Blogos is **100% free** and **open-source**. I encourage and support an active, healthy community that accepts contributions from the public. I'd like you to be a part of that community.
-Just make a pullRequest
+EmberBlog - Los Blogos is **100% free** and **open-source**. I encourage and support an active, healthy community that accepts contributions from the public. Fork this, download it, browse the code, check the wiki's. 
+
+If you have something to contribute with, just make a pullRequest.
 
 ## Copyright / License
 No Copyrights nor License... 
