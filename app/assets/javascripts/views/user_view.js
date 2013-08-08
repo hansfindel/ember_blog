@@ -1,5 +1,6 @@
 EmberBlog.UserView = Ember.View.extend({
-  templateName: 'users/show'
+  templateName: 'users/show', 
+
 });
 
 
