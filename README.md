@@ -18,7 +18,7 @@ There are a few tutorials to learn to use this framework. But many of those use 
 
 ## Features
 **Basic**
-- CRUD of resources
+- CRUD of resources ([Basic Tutorial](https://github.com/hansfindel/ember_blog/wiki/Create-a-new-Ember-App))
 - Nested & Associated resources
 
 **Hacked** 
@@ -27,7 +27,7 @@ There are a few tutorials to learn to use this framework. But many of those use 
 - ClientSide Validation for models
 
 ## To Do List
-- Keep up with the wiki
+- Keep up with the wiki ("advanced features")
 - Searcher & autocomplete
 
 ## Done by others
