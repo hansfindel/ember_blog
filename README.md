@@ -22,7 +22,8 @@ There are a few tutorials to learn to use this framework. But many of those use 
 - Nested & Associated resources
 
 **Hacked** 
-- Log in with persistent sessions based on keys. 
+- Log in with persistent sessions based on keys ([more params on requests](https://github.com/hansfindel/ember_blog/wiki/_new?wiki[name]=Send%20extra%20params))
+- Local Storage
 - "Infinite scroll" for blogs
 - ClientSide Validation for models
 
