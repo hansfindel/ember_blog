@@ -28,7 +28,6 @@ There are a few tutorials to learn to use this framework. But many of those use 
 - ClientSide Validation for models
 
 ## To Do List
-- Keep up with the wiki ("advanced features")
 - Searcher & autocomplete
 
 ## Done by others
