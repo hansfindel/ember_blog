@@ -99,3 +99,20 @@ h2 a.active, h2 a{
   color: #2ba6cb;
   background: white;
 }
+
+.many_entries_container{
+  max-height: 340px;
+  overflow-y: scroll;
+  border: 1px solid #2ba6cb;
+  padding: 10px;
+  background:
+  linear-gradient(white 30%, hsla(0,0%,100%,0)),
+  linear-gradient(hsla(0,0%,100%,0), white 70%) bottom,
+  radial-gradient(at top, rgba(0,0,0,.2), transparent 70%),
+  radial-gradient(at bottom, rgba(0,0,0,.2), transparent 70%) bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+  background-attachment: local, local, scroll, scroll;
+
+
+}
