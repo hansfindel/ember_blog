@@ -74,6 +74,7 @@ EmberBlog.Blog = EmberBlog.APIModel.extend({
   deactivate: function(){
     this.set("active", false);
   }
+
 });
 
 

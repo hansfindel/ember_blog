@@ -10,5 +10,5 @@ EmberBlog.NewCommentController = Ember.ObjectController.extend({
 		this.get("store").commit();
 		//console.log("new comment controller");
 	}
-
+	
 });

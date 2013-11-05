@@ -13,6 +13,11 @@ EmberBlog.Comment = EmberBlog.APIModel.extend({
   endEdit: function(){
     this.set("editing", false)
   }
+  , 
+  valid_comment: function(){
+    console.log (this.get("description"))
+      return this.get("description") == "";
+  }
 
 });
 

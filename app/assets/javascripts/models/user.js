@@ -21,7 +21,6 @@ EmberBlog.User = EmberBlog.APIModel.extend({
   fullname: function(){
   	return this.get("username");
   }
-
 });
 
 

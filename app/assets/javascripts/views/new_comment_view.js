@@ -14,5 +14,6 @@ EmberBlog.NewCommentView = Ember.View.extend({
     return false;
   }, 
 
+  
 
 });
