@@ -8,7 +8,7 @@ class Api::V1::APIController < ApplicationController
 			#puts "valid apiKey"
 			@current_user = User.find_by_id(options[:session_id])
 			#puts @current_user.attributes.to_s if @current_user
-			if @current_user.token != options[:session_token]
+			if @current_user && @current_user.token != options[:session_token]
 				@current_user = nil 
 			end
 			@current_user 

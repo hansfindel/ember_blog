@@ -1,6 +1,6 @@
 class Api::V1::BlogsController < Api::V1::APIController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  before_action :validate_request # all! , only: [:index, :show, :create, :update, :destroy]   
+  #before_action :validate_request # all! , only: [:index, :show, :create, :update, :destroy]   
   respond_to :json
 
   # GET 
