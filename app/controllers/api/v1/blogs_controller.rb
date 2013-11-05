@@ -1,6 +1,7 @@
 class Api::V1::BlogsController < Api::V1::APIController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   #before_action :validate_request # all! , only: [:index, :show, :create, :update, :destroy]   
+  before_action :validate_request , only: [:create]   
   respond_to :json
 
   # GET 
@@ -32,6 +33,7 @@ class Api::V1::BlogsController < Api::V1::APIController
   def create
     #sleep 1
     @blog = Blog.new(blog_params)
+
     @blog.user_id = @current_user.id 
     #puts @blog
     @blog.save
