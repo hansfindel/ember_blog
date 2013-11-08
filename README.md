@@ -11,10 +11,13 @@ This blog is built from the following open source components:
 
 ## Learning Ember.js
 
+The people from emberjs created a chrome extention named [Ember Inspector](https://chrome.google.com/webstore/search/ember.js?hl=es-419), which can help you develop with this client side framework. 
+
 There are a few tutorials to learn to use this framework. But many of those use other tools to accomplish some of the frameworks functionalities. The "official tutorial" linked in the page is a outdated and some of its lessons doesn't apply anymore.
  
 - [Ember Setup + Simple CRUD](https://github.com/hansfindel/ember_blog/wiki/Create-a-new-Ember-App) 
 - This example
+- [Smashingmagazine](http://coding.smashingmagazine.com/2013/11/07/an-in-depth-introduction-to-ember-js/)
 
 ## Features
 **Basic**
